@@ -5,7 +5,9 @@ const userSchema = new mongoose.Schema({
     name:{type:String,required:true},
     email:{type:String,required:true},
     password:{type:String,required:true},
-    role:{type:String,enum:['landlord','user'],default:'user'},
+    address:{type:String},
+    photo:{type:String},
+    role:{type:String,enum:['admin','landlord','user'],default:'user'},
 },{
     timestamps: true,
 })
