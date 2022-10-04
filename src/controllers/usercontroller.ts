@@ -32,7 +32,7 @@ export const login = async (req: Request, res: Response) => {
     if (!user) return errorResponse(res, 404, 'User does not exists');
     const validatePassword = await comparePassword(password, user.password);
     if (!validatePassword) return errorResponse(res, 400, 'wrong Password')
-    const token = await generateToken({ _id: user._id, name: user.name, role: user.role });
+    const token = await generateToken({ id: user.id, name: user.name, role: user.role });
     return successResponse(res, 200, 'user logged in successfully', { user, token });
 
   } catch (error) {
