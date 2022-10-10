@@ -3,8 +3,8 @@ import { Router } from 'express';
 const adminRouter = Router();
 
 import { authProtect,verifyAdmin } from '../middlewares/auth'
-import { registerLandlord } from '../controllers/admincontroller' ;
+import { getAllusers} from '../controllers/admincontroller' ;
 
-adminRouter.route('/register').post(authProtect,verifyAdmin,registerLandlord);
+adminRouter.route('/').post(authProtect,verifyAdmin,getAllusers);
 
 export default adminRouter;
