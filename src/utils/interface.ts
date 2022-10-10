@@ -25,3 +25,11 @@ export interface Ipost {
     updatedAt?:Date,
 }
 
+export interface Icomment {
+   _id?:string,
+   owner:string,
+    comment:number,
+    createdAt?:Date,
+    updatedAt?:Date,
+}
+
