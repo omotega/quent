@@ -5,9 +5,11 @@ import { CustomRequest } from './utils/interface'
 import  dbConnect  from './config/db';
 import userRouter from './routes/userroutes';
 import adminRouter from './routes/adminroutes';
+import postRouter from './routes/postroutes';
 
 
 dotenv.config();
+
 const port = process.env.PORT || 9200;
 
 const app = express()
@@ -27,6 +29,7 @@ app.get('/',(req,res) => {
 
 app.use('/api/v1/users',userRouter);
 app.use('/api/v1/admin',adminRouter);
+app.use('/api/v1/posts',postRouter);
 
 dbConnect();
 app.listen(port, () => console.log(`port running on port ${port}`));
