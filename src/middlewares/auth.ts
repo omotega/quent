@@ -1,5 +1,5 @@
 import { Request, Response,NextFunction } from 'express';
-import { errorResponse, handleError } from '../utils/response';
+import { errorResponse } from '../utils/response';
 import { decodeToken } from '../utils/token';
 import User from '../models/usermodel';
 
@@ -27,17 +27,6 @@ export const verifyAdmin = async(req: Request, res: Response,next:NextFunction) 
         const { _id } = req.user;
         const admin = await User.findOne({_id,role:'admin'});
         if(!admin) return errorResponse(res,401,'unauthorized access');
-        return next()
-    } catch (error:any) {
-        return errorResponse(res, 500, error.message);
-    }
-}
-
-export const verifyLandlord = async(req: Request, res: Response,next: NextFunction) => {
-    try {
-        const { _id } = req.user;
-        const landlord = await User.findOne({_id,role:'landlord'});
-        if(!landlord) return errorResponse(res,401,'unathorized access');
         return next()
     } catch (error:any) {
         return errorResponse(res, 500, error.message);
