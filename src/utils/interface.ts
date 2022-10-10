@@ -14,3 +14,14 @@ export interface CustomRequest{
     path:object,
 }
 
+export interface Ipost {
+    post:string,
+    user_id:string,
+    likes:number,
+    comment:number,
+    image:string,
+    content:string,
+    createdAt?:Date,
+    updatedAt?:Date,
+}
+
