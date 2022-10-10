@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Comment from '../models/comment';
+import Comment from '../models/commentmodel';
 import { errorResponse, handleError, successResponse } from '../utils/response';
 
 
