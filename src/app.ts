@@ -6,6 +6,7 @@ import  dbConnect  from './config/db';
 import userRouter from './routes/userroutes';
 import adminRouter from './routes/adminroutes';
 import postRouter from './routes/postroutes';
+import commentRouter from './routes/commentroutes';
 
 
 dotenv.config();
@@ -30,6 +31,7 @@ app.get('/',(req,res) => {
 app.use('/api/v1/users',userRouter);
 app.use('/api/v1/admin',adminRouter);
 app.use('/api/v1/posts',postRouter);
+app.use('/api/v1/comments',commentRouter);
 
 dbConnect();
 app.listen(port, () => console.log(`port running on port ${port}`));
