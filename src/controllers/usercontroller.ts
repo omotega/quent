@@ -41,3 +41,17 @@ export const login = async (req: Request, res: Response) => {
   }
 
 }
+
+export const updateProfile = async(req: Request, res: Response) => {
+  try {
+    const { _id } = req.user;
+    const { name, address,} = req.body;
+    const user = await User.findByIdAndUpdate({_id},{name,address},{new:true}).select('-password');
+    return successResponse(res,200,'profile updated succesfully',user);
+  } catch (error) {
+    handleError(error,req);
+    return errorResponse(res, 500, 'server error');
+  }
+}
+
+
